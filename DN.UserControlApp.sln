@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DN.UserControlApp.API", "src\DN.UserControlApp.API\DN.UserControlApp.API.csproj", "{B7D7D725-DFB5-4259-A044-0730858832D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DN.UserControlApp.Application", "src\DN.UserControlApp.Application\DN.UserControlApp.Application.csproj", "{171F51CF-BC0E-4FB7-9D1C-7B81E8443C15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DN.UserControlApp.Domain", "src\DN.UserControlApp.Domain\DN.UserControlApp.Domain.csproj", "{3EA2D25E-C685-4F02-9D42-72B5B2CF0B59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DN.UserControlApp.Infra.Data", "src\DN.UserControlApp.Infra.Data\DN.UserControlApp.Infra.Data.csproj", "{0E40B3AD-2912-4633-A59B-42AB987B09D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DN.UserControlApp.Infra.IoC", "src\DN.UserControlApp.Infra.IoC\DN.UserControlApp.Infra.IoC.csproj", "{8C9B594C-E144-4FDA-B0C1-36B37AD8F5B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DN.UserControlApp.SharedKernel", "src\DN.UserControlApp.SharedKernel\DN.UserControlApp.SharedKernel.csproj", "{58F3B20A-D40F-49B7-92D1-FBED75695AF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7D7D725-DFB5-4259-A044-0730858832D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D7D725-DFB5-4259-A044-0730858832D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D7D725-DFB5-4259-A044-0730858832D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D7D725-DFB5-4259-A044-0730858832D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{171F51CF-BC0E-4FB7-9D1C-7B81E8443C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{171F51CF-BC0E-4FB7-9D1C-7B81E8443C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{171F51CF-BC0E-4FB7-9D1C-7B81E8443C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{171F51CF-BC0E-4FB7-9D1C-7B81E8443C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA2D25E-C685-4F02-9D42-72B5B2CF0B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA2D25E-C685-4F02-9D42-72B5B2CF0B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA2D25E-C685-4F02-9D42-72B5B2CF0B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA2D25E-C685-4F02-9D42-72B5B2CF0B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E40B3AD-2912-4633-A59B-42AB987B09D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E40B3AD-2912-4633-A59B-42AB987B09D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E40B3AD-2912-4633-A59B-42AB987B09D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E40B3AD-2912-4633-A59B-42AB987B09D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C9B594C-E144-4FDA-B0C1-36B37AD8F5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C9B594C-E144-4FDA-B0C1-36B37AD8F5B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C9B594C-E144-4FDA-B0C1-36B37AD8F5B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C9B594C-E144-4FDA-B0C1-36B37AD8F5B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F3B20A-D40F-49B7-92D1-FBED75695AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F3B20A-D40F-49B7-92D1-FBED75695AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F3B20A-D40F-49B7-92D1-FBED75695AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F3B20A-D40F-49B7-92D1-FBED75695AF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
