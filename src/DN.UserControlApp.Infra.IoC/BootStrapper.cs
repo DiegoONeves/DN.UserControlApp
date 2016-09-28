@@ -18,9 +18,10 @@ namespace DN.UserControlApp.Infra.IoC
     {
         public static void RegisterServices(Container container)
         {
+            //Lifestyle ls = Lifestyle.CreateHybrid(() => container.GetCurrentRegistrations() != null, Lifestyle.Scoped, Lifestyle.Transient);
 
             container.Register<IHandler<DomainNotification>, DomainNotificationHandler>(Lifestyle.Scoped);
-            container.Register<IHandler<UserRegistered>, UserRegisteredHandler>();
+            container.Register<IHandler<UserRegistered>, UserRegisteredHandler>(Lifestyle.Scoped);
             container.Register<IUserApplicationService, UserApplicationService>(Lifestyle.Scoped);
             container.Register<IUserRepository, UserRepository>(Lifestyle.Scoped);
             container.Register<UserControlDataContext>(Lifestyle.Scoped);

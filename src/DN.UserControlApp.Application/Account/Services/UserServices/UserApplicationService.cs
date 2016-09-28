@@ -1,15 +1,11 @@
-﻿using DN.UserControlApp.Domain.Account.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using DN.UserControlApp.Domain.Account.Commands;
 using DN.UserControlApp.Domain.Account.Entities;
-using DN.UserControlApp.Domain.Account.Repositories;
-using DN.UserControlApp.SharedKernel.Repositories.Contracts;
-using DN.UserControlApp.SharedKernel.Events;
 using DN.UserControlApp.Domain.Account.Events.UserEvents;
+using DN.UserControlApp.Domain.Account.Repositories;
+using DN.UserControlApp.Domain.Account.Services;
+using DN.UserControlApp.SharedKernel.Events;
+using DN.UserControlApp.SharedKernel.Repositories.Contracts;
 
 namespace DN.UserControlApp.Application.Account.Services.UserServices
 {
@@ -36,12 +32,16 @@ namespace DN.UserControlApp.Application.Account.Services.UserServices
 
             return null;
         }
+
         public bool Authenticate(string username, string password)
         {
             var user = _repository.Authenticate(username, password);
             return user != null;
         }
 
-
+        public User GetByUserName(string userName)
+        {
+            return null;
+        }
     }
 }

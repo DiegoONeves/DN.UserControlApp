@@ -6,6 +6,8 @@ namespace DN.UserControlApp.Domain.Account.Services
     public interface IUserApplicationService
     {
         User Register(RegisterUserCommand command);
+        User GetByUserName(string userName);
         bool Authenticate(string username, string password);
+
     }
 }

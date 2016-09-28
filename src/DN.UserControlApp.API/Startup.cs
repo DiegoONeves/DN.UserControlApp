@@ -1,5 +1,7 @@
 ﻿using DN.UserControlApp.API.Helpers;
 using DN.UserControlApp.API.Security;
+using DN.UserControlApp.Application.Account.Services.UserServices;
+using DN.UserControlApp.Domain.Account.Services;
 using DN.UserControlApp.Infra.IoC;
 using DN.UserControlApp.SharedKernel.Events;
 using Microsoft.Owin;
@@ -18,6 +20,8 @@ namespace DN.UserControlApp.API
 {
     public class Startup
     {
+        IUserApplicationService _userApplicationService;
+
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration config = new HttpConfiguration();
@@ -25,7 +29,7 @@ namespace DN.UserControlApp.API
             ConfigureWebApi(config);
             ConfigureDependencyInjection(config);
 
-            //ConfigureOAuth(app);
+            ConfigureOAuth(app);
 
             app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(config);
@@ -61,7 +65,7 @@ namespace DN.UserControlApp.API
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/api/security/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromHours(2),
-                Provider = new AuthorizationServerProvider()
+                Provider = new AuthorizationServerProvider(_userApplicationService)
             };
 
             // Token Generation
@@ -69,7 +73,7 @@ namespace DN.UserControlApp.API
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
         }
 
-        public static void ConfigureDependencyInjection(HttpConfiguration config)
+        public void ConfigureDependencyInjection(HttpConfiguration config)
         {
             // Create the container as usual.
             var container = new Container();
@@ -77,11 +81,13 @@ namespace DN.UserControlApp.API
 
             // Register your types, for instance using the scoped lifestyle:
             BootStrapper.RegisterServices(container);
-            //container.Verify();
             config.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
-
             DomainEvent.Container = new DomainEventsContainer(config.DependencyResolver);
 
+           _userApplicationService = (IUserApplicationService)config.DependencyResolver.BeginScope().GetService(typeof(IUserApplicationService));
+            
         }
+
+
     }
 }
