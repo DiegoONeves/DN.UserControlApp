@@ -8,7 +8,7 @@ namespace DN.UserControlApp.Domain.Account.Specs
     {
         public static Expression<Func<User, bool>> AuthenticateUser(string userName, string password)
         {
-            return x => x.UserName == userName && x.Password == password;
+            return x => x.Email == userName && x.Password == password;
         }
 
         public static Expression<Func<User, bool>> IsActive()

@@ -56,7 +56,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DN.UserControlApp.Domain\DN.UserControlApp.Domain.csproj">
       <Project>{3ea2d25e-c685-4f02-9d42-72b5b2cf0b59}</Project>

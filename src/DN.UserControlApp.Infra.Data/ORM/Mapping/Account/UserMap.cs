@@ -13,11 +13,18 @@ namespace DN.UserControlApp.Infra.Data.ORM.Mapping.Account
             Property(x => x.UserId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(x => x.UserName)
-                .HasMaxLength(20)
+            Property(x => x.FirstName)
+                .HasMaxLength(10)
+                .IsRequired();
+
+            Property(x => x.UserRole)
+                .IsRequired();
+
+            Property(x => x.Email)
+                .HasMaxLength(80)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("IX_USER_USERNAME", 1)
+                    new IndexAnnotation(new IndexAttribute("IX_USER_EMAIL", 1)
                     {
                         IsUnique = true
                     }))

@@ -8,7 +8,7 @@ namespace DN.UserControlApp.Infra.Data.ORM.Contexts
     public class UserControlDataContext: DbContext
     {
         public UserControlDataContext()
-            :base("UserControlDataContext")
+            :base("UserControlDB")
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;

@@ -35,17 +35,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Commands\RegisterUserCommand.cs" />
+    <Compile Include="Account\Commands\UpdateUserCommand.cs" />
     <Compile Include="Account\Entities\User.cs" />
     <Compile Include="Account\Events\UserEvents\UserRegistered.cs" />
     <Compile Include="Account\Handlers\Contracts\IUserRegisteredHandler.cs" />
     <Compile Include="Account\Repositories\IUserRepository.cs" />
     <Compile Include="Account\Services\IUserApplicationService.cs" />
     <Compile Include="Account\Specs\UserSpecs.cs" />
+    <Compile Include="Account\ValueObjects\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Account\Scopes\UserScopes.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\ValueObjects\" />
     <Folder Include="Gym\" />
   </ItemGroup>
   <ItemGroup>

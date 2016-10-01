@@ -9,7 +9,7 @@ namespace DN.UserControlApp.Domain.Account.Scopes
         {
             return AssertionConcern.IsSatisfiedBy
                 (
-                    AssertionConcern.AssertNotEmpty(user.UserName, "O usuário não foi informado."),
+                    AssertionConcern.AssertNotEmpty(user.Email, "O usuário não foi informado."),
                     AssertionConcern.AssertNotEmpty(user.Password, "A senha do usuário não foi informada.")
                 );
         }

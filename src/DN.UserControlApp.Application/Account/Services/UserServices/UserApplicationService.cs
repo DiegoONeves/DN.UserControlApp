@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DN.UserControlApp.Domain.Account.Commands;
 using DN.UserControlApp.Domain.Account.Entities;
 using DN.UserControlApp.Domain.Account.Events.UserEvents;
@@ -20,7 +21,7 @@ namespace DN.UserControlApp.Application.Account.Services.UserServices
         }
         public User Register(RegisterUserCommand command)
         {
-            var user = new User(command.UserName, command.Password);
+            var user = new User(command.FirstName, command.Email, command.Password);
             user.Register();
             _repository.Register(user);
 
@@ -33,15 +34,14 @@ namespace DN.UserControlApp.Application.Account.Services.UserServices
             return null;
         }
 
-        public bool Authenticate(string username, string password)
-        {
-            var user = _repository.Authenticate(username, password);
-            return user != null;
-        }
-
-        public User GetByUserName(string userName)
+        public User GetByEmail(string email)
         {
             return null;
+        }
+
+        public IEnumerable<User> GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

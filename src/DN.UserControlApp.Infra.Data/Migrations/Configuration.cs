@@ -1,12 +1,9 @@
+using DN.UserControlApp.Infra.Data.ORM.Contexts;
+using System.Data.Entity.Migrations;
+
 namespace DN.UserControlApp.Infra.Data.Migrations
 {
-    using ORM.Contexts;
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<DN.UserControlApp.Infra.Data.ORM.Contexts.UserControlDataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<UserControlDataContext>
     {
         public Configuration()
         {
@@ -15,6 +12,8 @@ namespace DN.UserControlApp.Infra.Data.Migrations
 
         protected override void Seed(UserControlDataContext context)
         {
+            context.Database.CreateIfNotExists();
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

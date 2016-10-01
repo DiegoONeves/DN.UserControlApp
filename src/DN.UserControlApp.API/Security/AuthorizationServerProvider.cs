@@ -1,13 +1,9 @@
-﻿using Microsoft.Owin.Security.OAuth;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using DN.UserControlApp.Domain.Account.Services;
+using Microsoft.Owin.Security.OAuth;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
-using DN.UserControlApp.Domain.Account.Services;
 
 namespace DN.UserControlApp.API.Security
 {
@@ -30,10 +26,9 @@ namespace DN.UserControlApp.API.Security
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            var hasUser = _userAppService.Authenticate(context.UserName, context.Password);
-            var user = _userAppService.GetByUserName(context.UserName);
+            var user = _userAppService.GetByEmail(context.UserName);
 
-            if (!hasUser)
+            if (user == null || !user.Authenticate(context.UserName, context.Password))
             {
                 context.SetError("invalid_grant", "E-mail ou senha incorretos");
                 return;
@@ -41,8 +36,8 @@ namespace DN.UserControlApp.API.Security
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
 
-            identity.AddClaim(new Claim(ClaimTypes.Name, user.UserName));
-            //identity.AddClaim(new Claim(ClaimTypes.GivenName, user.UserName));
+            identity.AddClaim(new Claim(ClaimTypes.Name, user.FirstName));
+            identity.AddClaim(new Claim(ClaimTypes.Email, user.Email));
 
             GenericPrincipal principal = new GenericPrincipal(identity, null);
             Thread.CurrentPrincipal = principal;

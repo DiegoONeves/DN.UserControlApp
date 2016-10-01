@@ -22,7 +22,8 @@ namespace DN.UserControlApp.API.Controllers
         public Task<HttpResponseMessage> Post([FromBody]dynamic body)
         {
             var command = new RegisterUserCommand(
-                userName: (string)body.username,
+                firstName: (string)body.firstName,
+                email: (string)body.username,
                 password: (string)body.password
             );
 

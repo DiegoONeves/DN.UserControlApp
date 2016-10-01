@@ -23,8 +23,8 @@ namespace DN.UserControlApp.Infra.Data.Repositories
             }
             catch (Exception ex)
             {
-                if (ex.InnerException.InnerException.Message.Contains("IX_USER_USERNAME"))
-                    DomainEvent.Raise(new DomainNotification("User", "Este nome de usuário já está sendo utilizado."));
+                if (ex.InnerException.InnerException.Message.Contains("IX_USER_EMAIL"))
+                    DomainEvent.Raise(new DomainNotification("User", "Este E-mail já está sendo utilizado."));
                 else
                     DomainEvent.Raise(new DomainNotification("User", "Falha ao cadastrar usuário"));
             }

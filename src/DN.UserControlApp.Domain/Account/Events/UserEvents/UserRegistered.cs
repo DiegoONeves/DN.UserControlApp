@@ -15,7 +15,7 @@ namespace DN.UserControlApp.Domain.Account.Events.UserEvents
         {
             UserCreated = user;
             DateOccurred = DateTime.Now;
-            EmailTitle = "Seja bem vindo " + user.UserName;
+            EmailTitle = "Seja bem vindo " + user.Email;
             EmailBody = "Obrigado por se cadastrar.";
         }
 
