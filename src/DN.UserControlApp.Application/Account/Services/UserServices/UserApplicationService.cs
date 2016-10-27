@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using DN.UserControlApp.Domain.Account.Commands;
+﻿using DN.UserControlApp.Domain.Account.Commands;
 using DN.UserControlApp.Domain.Account.Entities;
 using DN.UserControlApp.Domain.Account.Events.UserEvents;
 using DN.UserControlApp.Domain.Account.Repositories;
 using DN.UserControlApp.Domain.Account.Services;
 using DN.UserControlApp.SharedKernel.Events;
 using DN.UserControlApp.SharedKernel.Repositories.Contracts;
+using System;
 
 namespace DN.UserControlApp.Application.Account.Services.UserServices
 {
@@ -39,7 +38,17 @@ namespace DN.UserControlApp.Application.Account.Services.UserServices
             return null;
         }
 
-        public IEnumerable<User> GetAll()
+        public User Update(UpdateUserCommand command)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ResetPassword(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ChangePassword(ChangePasswordCommand command)
         {
             throw new NotImplementedException();
         }

@@ -1,14 +1,17 @@
 ﻿using DN.UserControlApp.Domain.Account.Entities;
 using DN.UserControlApp.Infra.Data.ORM.Mapping.Account;
+using DN.UserControlApp.SharedKernel.Security;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 
 namespace DN.UserControlApp.Infra.Data.ORM.Contexts
 {
-    public class UserControlDataContext: DbContext
+    public class UserControlDataContext : DbContext
     {
         public UserControlDataContext()
-            :base("UserControlDB")
+            : base("UserControlDB")
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
@@ -35,6 +38,26 @@ namespace DN.UserControlApp.Infra.Data.ORM.Contexts
                 .Configure(p => p.HasMaxLength(50));
 
             modelBuilder.Configurations.Add(new UserMap());
+        }
+
+        public override int SaveChanges()
+        {
+            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("CreateDate") != null))
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("CreateDate").CurrentValue = DateTime.Now;
+                }
+
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Property("CreateDate").IsModified = false;
+                }
+            }
+
+            
+
+            return base.SaveChanges();
         }
     }
 }

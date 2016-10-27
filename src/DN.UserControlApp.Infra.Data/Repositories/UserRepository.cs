@@ -37,5 +37,10 @@ namespace DN.UserControlApp.Infra.Data.Repositories
                 .Where(UserSpecs.AuthenticateUser(userName, password))
                 .FirstOrDefault();
         }
+
+        public void Update(User user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

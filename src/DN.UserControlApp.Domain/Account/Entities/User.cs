@@ -14,7 +14,6 @@ namespace DN.UserControlApp.Domain.Account.Entities
             Email = email;
             Password = password;
             IsActive = true;
-            CreateDate = DateTime.Now;
             UserRole = UserRole.Admin;
         }
         public Guid UserId { get; private set; }

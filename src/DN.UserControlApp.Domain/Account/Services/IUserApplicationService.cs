@@ -7,7 +7,9 @@ namespace DN.UserControlApp.Domain.Account.Services
     public interface IUserApplicationService
     {
         User Register(RegisterUserCommand command);
-        IEnumerable<User> GetAll();
+        User Update(UpdateUserCommand command);
+        void ResetPassword(string email);
+        void ChangePassword(ChangePasswordCommand command);
         User GetByEmail(string email);
 
     }

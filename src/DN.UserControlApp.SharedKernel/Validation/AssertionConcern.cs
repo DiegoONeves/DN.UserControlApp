@@ -1,6 +1,7 @@
 ﻿using DN.UserControlApp.SharedKernel.Events;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace DN.UserControlApp.SharedKernel.Validation
 {
@@ -16,12 +17,16 @@ namespace DN.UserControlApp.SharedKernel.Validation
 
         public static void NotifyAll(IEnumerable<DomainNotification> notifications)
         {
-            notifications.ToList().ForEach(x => 
+            notifications.ToList().ForEach(x =>
             {
                 DomainEvent.Raise(x);
             });
         }
-
+        public static DomainNotification AssertArgumentFalse(bool boolValue, string message)
+        {
+            return (boolValue) ?
+                new DomainNotification("AssertArgumentFalse", message) : null;
+        }
         public static DomainNotification AssertNotNull(object object1, string message)
         {
             return (object1 == null) ?
@@ -32,7 +37,33 @@ namespace DN.UserControlApp.SharedKernel.Validation
             return (string.IsNullOrWhiteSpace(object1)) ?
                 new DomainNotification("AssertArgumentNotEmpty", message) : null;
         }
-    
+        public static DomainNotification AssertArgumentLength(string stringValue, int maximum, string message)
+        {
+            int length = stringValue.Trim().Length;
+
+            return length > maximum ?
+                new DomainNotification("AssertArgumentLength", message) : null;
+        }
+
+        public static DomainNotification AssertArgumentLength(string stringValue, int minimum, int maximum, string message)
+        {
+            if (string.IsNullOrEmpty(stringValue))
+                stringValue = string.Empty;
+
+            int length = stringValue.Trim().Length;
+
+            return length < minimum || length > maximum ?
+                new DomainNotification("AssertArgumentLength", message) : null;
+        }
+
+        public static DomainNotification AssertArgumentMatches(string pattern, string stringValue, string message)
+        {
+            Regex regex = new Regex(pattern);
+
+            return !regex.IsMatch(stringValue) ?
+                new DomainNotification("AssertArgumentMatches", message) : null;
+        }
+
 
     }
 }

@@ -41,6 +41,7 @@
     <Compile Include="Helpers\Contracts\IHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Contracts\IUnityOfWork.cs" />
+    <Compile Include="Security\EncryptHelper.cs" />
     <Compile Include="Validation\AssertionConcern.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
